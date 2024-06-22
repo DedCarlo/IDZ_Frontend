@@ -1,0 +1,103 @@
+<script setup lang='ts'>
+import ServiceInstance from '@/components/serviceInstance.vue'
+import router from '@/router'
+
+
+
+const services_list = [{
+  id: 1,
+  service_name: 'Продам ...',
+  service_annotation: 'Описание ...'
+},
+{
+  id: 2,
+  service_name: 'Продам ...',
+  service_annotation: 'Описание ...'
+},
+{
+  id: 3,
+  service_name: 'Продам ...',
+  service_annotation: 'Описание ...'
+},
+{
+  id: 4,
+  service_name: 'Продам ...',
+  service_annotation: 'Описание ...'
+}]
+
+
+
+
+</script>
+
+<template>
+
+  <div class='services_view_container'>
+    <div class='services_list'>
+      <service-instance v-for='(service, index) of services_list' @click="router.push({path: '/ServiceInstanceView'})"
+      :key='service.id'
+      :class='{active : index === 0}'
+      :service_name='service.service_name'
+      :service_annotation='service.service_annotation'/>
+    </div>
+    <div class='services_search_menu'>
+      <p>Поиск</p>
+      <input type='search' class='custom-search'>
+      <input type='search' class='custom-search'>
+      <p>Поиск</p>
+      <input type='search' class='custom-search'>
+      <input type='search' class='custom-search'>
+      <p>Поиск</p>
+      <input type='checkbox' class='custom-checkbox'>
+      <input type='checkbox' class='custom-checkbox'>
+      <input type='checkbox' class='custom-checkbox'>
+    </div>
+  </div>
+
+</template>
+
+<style scoped>
+
+.services_view_container{
+  margin-left: 150px;
+  margin-top: 220px;
+  display: grid;
+  grid-template-columns: 1075px 430px;
+}
+
+.active{
+  margin-top: 0;
+}
+
+.services_search_menu{
+  width: 430px;
+  height: 600px;
+  border-radius: 30px;
+  display: grid;
+  margin-left: 115px;
+  background-color: lightgray;
+  grid-template-rows: 70px 60px 60px 70px 60px 60px 70px  50px 50px 50px;
+}
+
+.custom-checkbox{
+  height: 32px;
+  width: 32px;
+  margin-left: 40px;
+}
+
+.custom-search{
+  height: 32px;
+  width: 370px;
+  border-radius: 12px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+p{
+  margin-left: 30px;
+}
+
+
+
+</style>
+
